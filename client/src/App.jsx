@@ -50,9 +50,7 @@ function newMessageToItem(data) {
   }
 }
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:3000"
-const SESSION_KEY = "webchat-session"
-const socket = io(SOCKET_URL)
+const socket = io()
 
 function readSavedSession() {
   try {
