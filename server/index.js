@@ -80,7 +80,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173",
-      "https://web-chat.vercel.app"
+      "https://web--chat.vercel.app"
     ],
     methods: ["GET", "POST"]
   }
