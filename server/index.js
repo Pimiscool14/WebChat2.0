@@ -36,10 +36,18 @@ const { avatarUpload, processAvatar } = require("./avatarUpload")
 const { serverIconUpload, processServerIcon, ICON_MAX_MB } = require("./serverIconUpload")
 const { toPublicProfile, validateDisplayName, validateBio } = require("./profile")
 
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173"
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || [
+  "http://localhost:5173",
+  "https://web--chat.vercel.app"
+]
 
 const app = express()
-app.use(cors({ origin: CLIENT_ORIGIN }))
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://web--chat.vercel.app"
+  ]
+}))
 app.use(express.json())
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
@@ -70,7 +78,10 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    origin: CLIENT_ORIGIN,
+    origin: [
+      "http://localhost:5173",
+      "https://web-chat.vercel.app"
+    ],
     methods: ["GET", "POST"]
   }
 })
