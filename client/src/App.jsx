@@ -50,7 +50,7 @@ function newMessageToItem(data) {
   }
 }
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:3000"
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "https://webchat-ijj9.onrender.com"
 const SESSION_KEY = "webchat-session"
 const socket = io(SOCKET_URL)
 
